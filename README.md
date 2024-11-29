@@ -1,8 +1,10 @@
 Et lite kommandolinjeverktøy for å analysere CallDataRecords(CDR) fra Lyse.
 
-Brukes ved å skrive "<code>CallStatsTool.exe <filnavn></code>" i CMD, filen med filnavnet må ligge i directory til exe-fila.
+Brukes ved å skrive `CallStatsTool.exe <filnavn>` i CMD, filen med filnavnet må ligge i directory til exe-fila.
 
-Programmet løser oppgaven beskrevet under:
+Programmet løser problemstillingen beskrevet under.
+
+---
 
 Problemstilling:
 
@@ -18,6 +20,7 @@ Du må prosessere disse postene og svare på følgende:
 3. Beregn det totale antallet unike telefonnumre som er involvert i datasettet.
 
 //Eksempel data cdrs.json
+```
 [
     { "Caller": "12345678", "Receiver": "09876543", "StartTime": "2024-11-27T10:00:00Z", "Duration": 120 },
     { "Caller": "12345678", "Receiver": "11223344", "StartTime": "2024-11-27T10:05:00Z", "Duration": 60 },
@@ -25,7 +28,7 @@ Du må prosessere disse postene og svare på følgende:
     { "Caller": "11223344", "Receiver": "12345678", "StartTime": "2024-11-27T10:20:00Z", "Duration": 30 },
     { "Caller": "12345678", "Receiver": "44556677", "StartTime": "2024-11-27T10:30:00Z", "Duration": 90 }
 ]
-
+```
 Dette skal resultere i:
 
 Top 3 Most Active Callers:
