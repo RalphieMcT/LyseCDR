@@ -37,15 +37,15 @@ public class Program
             //Print total unique phone numbers in dataset
             int uniqueCount = analyzer.UniquePhoneNumbers();
             Console.WriteLine($"Total Unique Phone Numbers: {uniqueCount}");
-
-            Console.ReadKey();
         }
         catch (Exception e)
         {
             Console.WriteLine(e);
             Console.WriteLine("Press any key to exit");
+        }
+        finally
+        {
             Console.ReadKey();
-            Environment.Exit(1);
         }
     }
 
