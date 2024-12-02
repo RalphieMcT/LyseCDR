@@ -4,7 +4,7 @@ using Newtonsoft.Json;
 
 namespace CallDataRecord;
 
-public class Tests
+public class LinqAnalyzerProvidedDataTests
 {
     private LinqAnalyzer _analyzer;
     
