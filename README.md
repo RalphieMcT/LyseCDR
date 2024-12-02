@@ -1,6 +1,6 @@
 Et lite kommandolinjeverktøy for å analysere CallDataRecords(CDR) fra Lyse.
 
-Brukes ved å skrive `CallStatsTool.exe <filnavn>` i CMD, filen med filnavnet må ligge i directory til exe-fila.
+Brukes ved å skrive `Console.exe <filnavn>` i CMD, filen med filnavnet må ligge i directory til exe-fila.
 
 Programmet løser problemstillingen beskrevet under.
 
