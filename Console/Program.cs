@@ -11,13 +11,14 @@ public class Program
     {
         if (args.Length == 0)
         {
-            throw new ArgumentException("Filnavn mangler");
+            Console.WriteLine("Syntax: Console.exe <path-to-file>");
+            Environment.Exit(1);
         }
 
         try
         {
-            string filename = args[0];
-            var json = ReadFile(filename);
+            var path = GetFullPath(args);
+            var json = ReadFile(path);
             List<CDR> data = DeserializeJson(json);
             LinqAnalyzer analyzer = new LinqAnalyzer(data);
 
@@ -41,23 +42,42 @@ public class Program
         catch (Exception e)
         {
             Console.WriteLine(e);
-            Console.WriteLine("Press any key to exit");
         }
-        finally
+    }
+
+    private static string GetFullPath(string[] args)
+    {
+        string path;
+        if (Path.IsPathRooted(args[0]))
         {
-            Console.ReadKey();
+            path = args[0];
         }
+        else
+        {
+            path = Path.Join(Environment.CurrentDirectory, args[0]);
+        }
+
+        return path;
     }
 
     private static List<CDR> DeserializeJson(string json)
     {
         List<CDR> data = JsonConvert.DeserializeObject<List<CDR>>(json);
+        if (data is null)
+        {
+            Console.WriteLine("JSON data is null");
+            Environment.Exit(1);
+        }
         return data;
     }
 
-    private static string ReadFile(string filename)
+    private static string ReadFile(string path)
     {
-        string path = Path.Join(Environment.CurrentDirectory, filename);
+        if (File.Exists(path) == false)
+        {
+            Console.WriteLine($"The file does not exist: {path}");
+            Environment.Exit(1);
+        }
         string json = File.ReadAllText(path);
         return json;
     }
